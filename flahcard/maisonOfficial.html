@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards - La Maison</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .top-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .top-section video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .top-section p {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: left;
+        }
+        .flashcards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .polaroid {
+            background: white;
+            padding: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 200px;
+            transform: rotate(-3deg);
+        }
+        .image-container {
+            width: 100%;
+            height: 200px;
+            background-color: grey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .caption {
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .play-button {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        /* Hover Effect for Words */
+        .translatable {
+            position: relative;
+            cursor: pointer;
+        }
+        .translatable:hover {
+            background-color: yellow;
+        }
+        .translatable::after {
+            content: attr(title);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        .translatable:hover::after {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Section: Video and Paragraph -->
+    <div class="top-section">
+        <video controls autoplay muted loop>
+            <source src="assets/notremaison.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>
+            <span class="translatable" title="It was">C’était</span> <span class="translatable" title="a">une</span> <span class="translatable" title="quiet">tranquille</span> <span class="translatable" title="day">journée</span> <span class="translatable" title="at">à</span> <span class="translatable" title="home">la maison</span>. <span class="translatable" title="In">Dans</span> <span class="translatable" title="the">le</span> <span class="translatable" title="hallway">couloir</span>, <span class="translatable" title="a">une</span> <span class="translatable" title="pile">pile</span> <span class="translatable" title="of">de</span> <span class="translatable" title="letters">lettres</span> <span class="translatable" title="was">était</span> <span class="translatable" title="placed">posée</span> <span class="translatable" title="on">sur</span> <span class="translatable" title="the">la</span> <span class="translatable" title="console">console</span> <span class="translatable" title="just">juste</span> <span class="translatable" title="next to">à côté</span> <span class="translatable" title="a">d’un</span> <span class="translatable" title="vase">vase</span> <span class="translatable" title="filled">rempli</span> <span class="translatable" title="with">de</span> <span class="translatable" title="flowers">fleurs</span>. <span class="translatable" title="The">Les</span> <span class="translatable" title="keys">clés</span> <span class="translatable" title="were">étaient</span> <span class="translatable" title="hanging">suspendues</span> <span class="translatable" title="on">à</span> <span class="translatable" title="a">un</span> <span class="translatable" title="hook">crochet</span>, <span class="translatable" title="ready">prêtes</span> <span class="translatable" title="to">à</span> <span class="translatable" title="be">être</span> <span class="translatable" title="grabbed">attrapées</span> <span class="translatable" title="to">pour</span> <span class="translatable" title="go out">sortir</span>.<br><br>
+            <span class="translatable" title="In">Dans</span> <span class="translatable" title="the">le</span> <span class="translatable" title="living room">salon</span>, <span class="translatable" title="the">l’</span><span class="translatable" title="wall clock">horloge murale</span> <span class="translatable" title="showed">indiquait</span> <span class="translatable" title="noon">midi</span> <span class="translatable" title="while">tandis</span> <span class="translatable" title="that">qu’</span><span class="translatable" title="next to">à côté</span>, <span class="translatable" title="the">la</span> <span class="translatable" title="potted plant">plante en pot</span> <span class="translatable" title="was">était</span> <span class="translatable" title="bathed">baignée</span> <span class="translatable" title="in">de</span> <span class="translatable" title="natural light">lumière naturelle</span>. <span class="translatable" title="On">Sur</span> <span class="translatable" title="the">l’</span><span class="translatable" title="shelf">étagère</span>, <span class="translatable" title="several">plusieurs</span> <span class="translatable" title="souvenirs">souvenirs</span> <span class="translatable" title="from">de</span> <span class="translatable" title="vacations">vacances</span> <span class="translatable" title="were">étaient</span> <span class="translatable" title="arranged">disposés</span> <span class="translatable" title="around">autour</span> <span class="translatable" title="a">d’un</span> <span class="translatable" title="family photo frame">cadre photo</span> <span class="translatable" title="familial">familial</span>. <span class="translatable" title="The">La</span> <span class="translatable" title="waste bin">corbeille</span> <span class="translatable" title="in">dans</span> <span class="translatable" title="a">un</span> <span class="translatable" title="corner">coin</span> <span class="translatable" title="contained">contenait</span> <span class="translatable" title="a few">quelques</span> <span class="translatable" title="magazines">magazines</span> <span class="translatable" title="and">et</span> <span class="translatable" title="newspapers">journaux</span> <span class="translatable" title="to">à</span> <span class="translatable" title="recycle">recycler</span>.<br><br>
+            <span class="translatable" title="In">Dans</span> <span class="translatable" title="the">le</span> <span class="translatable" title="office">bureau</span>, <span class="translatable" title="the">la</span> <span class="translatable" title="desk lamp">lampe de bureau</span> <span class="translatable" title="softly">éclairait doucement</span> <span class="translatable" title="a">un</span> <span class="translatable" title="stack">tas</span> <span class="translatable" title="of">de</span> <span class="translatable" title="important papers">papiers importants</span>, <span class="translatable" title="and">et</span> <span class="translatable" title="the">le</span> <span class="translatable" title="soft rug">tapis moelleux</span> <span class="translatable" title="made">rendait</span> <span class="translatable" title="the">l’</span><span class="translatable" title="place">endroit</span> <span class="translatable" title="comfortable">confortable</span> <span class="translatable" title="for">pour</span> <span class="translatable" title="working">travailler</span>. <span class="translatable" title="In">Au</span> <span class="translatable" title="the center">centre</span>, <span class="translatable" title="the">la</span> <span class="translatable" title="swivel chair">chaise pivotante</span> <span class="translatable" title="was">était</span> <span class="translatable" title="perfectly">parfaitement</span> <span class="translatable" title="adjusted">ajustée</span>, <span class="translatable" title="ready">prête</span> <span class="translatable" title="for">pour</span> <span class="translatable" title="a">une</span> <span class="translatable" title="new">nouvelle</span> <span class="translatable" title="productive">productive</span> <span class="translatable" title="day">journée</span>.<br><br>
+            <span class="translatable" title="Finally">Enfin</span>, <span class="translatable" title="the">le</span> <span class="translatable" title="balcony">balcon</span> <span class="translatable" title="was">était</span> <span class="translatable" title="a">un</span> <span class="translatable" title="haven">havre</span> <span class="translatable" title="of">de</span> <span class="translatable" title="peace">paix</span> <span class="translatable" title="with">avec</span> <span class="translatable" title="a">une</span> <span class="translatable" title="small">petite</span> <span class="translatable" title="table">table</span>, <span class="translatable" title="folding chairs">chaises pliantes</span>, <span class="translatable" title="and">et</span> <span class="translatable" title="a">un</span> <span class="translatable" title="watering can">arrosoir</span> <span class="translatable" title="placed">posé</span> <span class="translatable" title="near">près</span> <span class="translatable" title="the">des</span> <span class="translatable" title="well-maintained">bien entretenus</span> <span class="translatable" title="flower pots">pots de fleurs</span>. <span class="translatable" title="The">L’</span><span class="translatable" title="fresh air">air frais</span> <span class="translatable" title="brought">apportait</span> <span class="translatable" title="a">une</span> <span class="translatable" title="peaceful">paisible</span> <span class="translatable" title="atmosphere">ambiance</span> <span class="translatable" title="to">à</span> <span class="translatable" title="this">cette</span> <span class="translatable" title="lively">bien vivante</span> <span class="translatable" title="home">maison</span>.
+        </p>
+    </div>
+
+    <!-- Flashcards Section -->
+    <div class="flashcards-container">
+        <!-- Flashcard 1: Le Coussin -->
+        <div class="polaroid">
+            <div class="image-container">
+                <img src="assets/Untitled design (2).jpg" alt="Le coussin" style="max-width: 100%; max-height: 100%;">
+            </div>
+            <div class="caption">
+                Le coussin
+                <button class="play-button" onclick="document.getElementById('audio1').play()">▶️</button>
+            </div>
+            <audio id="audio1" controls style="display: none;">
+                <source src="assets/pillow.mov" type="audio/mp4">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Flashcard 2: L'Horloge -->
+        <div class="polaroid">
+            <div class="image-container">
+                <img src="assets/clock.jpg" alt="L'horloge" style="max-width: 100%; max-height: 100%;">
+            </div>
+            <div class="caption">
+                L'horloge
+                <button class="play-button" onclick="document.getElementById('audio2').play()">▶️</button>
+            </div>
+            <audio id="audio2" controls style="display: none;">
+                <source src="assets/clock.mov" type="audio/mp4">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Flashcard 3: La Plante -->
+        <div class="polaroid">
+            <div class="image-container">
+                <img src="assets/plant.jpg" alt="La plante" style="max-width: 100%; max-height: 100%;">
+            </div>
+            <div class="caption">
+                La plante
+                <button class="play-button" onclick="document.getElementById('audio3').play()">▶️</button>
+            </div>
+            <audio id="audio3" controls style="display: none;">
+                <source src="assets/plant.mov" type="audio/mp4">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Add more flashcards as needed -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards - La Maison</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .top-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .top-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .top-section p {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: left;
+        }
+        .flashcards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .polaroid {
+            background: white;
+            padding: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 200px;
+            transform: rotate(-3deg);
+        }
+        .image-container {
+            width: 100%;
+            height: 200px;
+            background-color: grey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .caption {
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .play-button {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        /* Hover Effect for Words */
+        .translatable {
+            position: relative;
+            cursor: pointer;
+        }
+        .translatable:hover {
+            background-color: yellow;
+        }
+        .translatable::after {
+            content: attr(title);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        .translatable:hover::after {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Section: Image and Paragraph -->
+    <div class="top-section">
+        <img src="assets/house.jpg" alt="La Maison">
+        <p>
+            C’était une journée tranquille à la maison. Dans le <span class="translatable" title="hall">couloir</span>, une pile de <span class="translatable" title="letters">lettres</span> était posée sur la <span class="translatable" title="console">console</span> juste à côté d’un <span class="translatable" title="vase">vase</span> rempli de <span class="translatable" title="flowers">fleurs</span>. Les <span class="translatable" title="keys">clés</span> étaient suspendues à un <span class="translatable" title="hook">crochet</span>, prêtes à être attrapées pour sortir.<br><br>
+            Dans le <span class="translatable" title="living room">salon</span>, l’<span class="translatable" title="wall clock">horloge murale</span> indiquait midi tandis qu’à côté, la <span class="translatable" title="potted plant">plante en pot</span> était baignée de <span class="translatable" title="natural light">lumière naturelle</span>. Sur l’<span class="translatable" title="shelf">étagère</span>, plusieurs <span class="translatable" title="souvenirs">souvenirs</span> de vacances étaient disposés autour d’un <span class="translatable" title="photo frame">cadre photo</span> familial. La <span class="translatable" title="waste bin">corbeille</span> dans un coin contenait quelques <span class="translatable" title="magazines">magazines</span> et <span class="translatable" title="newspapers">journaux</span> à recycler.<br><br>
+            Dans le <span class="translatable" title="office">bureau</span>, la <span class="translatable" title="desk lamp">lampe de bureau</span> éclairait doucement un tas de <span class="translatable" title="important papers">papiers importants</span>, et le <span class="translatable" title="soft rug">tapis moelleux</span> rendait l’endroit confortable pour travailler. Au centre, la <span class="translatable" title="swivel chair">chaise pivotante</span> était ajustée parfaitement, prête pour une nouvelle journée productive.<br><br>
+            Enfin, le <span class="translatable" title="balcony">balcon</span> était un havre de paix avec une petite <span class="translatable" title="table">table</span>, des <span class="translatable" title="folding chairs">chaises pliantes</span>, et un <span class="translatable" title="watering can">arrosoir</span> posé près des <span class="translatable" title="flower pots">pots de fleurs</span> bien entretenus. L’<span class="translatable" title="fresh air">air frais</span> apportait une ambiance paisible à cette maison bien vivante.
+        </p>
+    </div>
+
+    <!-- Flashcards Section -->
+    <div class="flashcards-container">
+        <!-- Flashcard 1: Le Coussin -->
+        <div class="polaroid">
+            <div class="image-container">
+                <img src="assets/Untitled design (2).jpg" alt="Le coussin" style="max-width: 100%; max-height: 100%;">
+            </div>
+            <div class="caption">
+                Le coussin
+                <button class="play-button" onclick="document.getElementById('audio1').play()">▶️</button>
+            </div>
+            <audio id="audio1" controls style="display: none;">
+                <source src="assets/pillow.mov" type="audio/mp4">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Flashcard 2: L'Horloge -->
+        <div class="polaroid">
+            <div class="image-container">
+                <img src="assets/clock.jpg" alt="L'horloge" style="max-width: 100%; max-height: 100%;">
+            </div>
+            <div class="caption">
+                L'horloge
+                <button class="play-button" onclick="document.getElementById('audio2').play()">▶️</button>
+            </div>
+            <audio id="audio2" controls style="display: none;">
+                <source src="assets/clock.mov" type="audio/mp4">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Flashcard 3: La Plante -->
+        <div class="polaroid">
+            <div class="image-container">
+                <img src="assets/plant.jpg" alt="La plante" style="max-width: 100%; max-height: 100%;">
+            </div>
+            <div class="caption">
+                La plante
+                <button class="play-button" onclick="document.getElementById('audio3').play()">▶️</button>
+            </div>
+            <audio id="audio3" controls style="display: none;">
+                <source src="assets/plant.mov" type="audio/mp4">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Add more flashcards as needed -->
+    </div>
+</body>
+</html>
